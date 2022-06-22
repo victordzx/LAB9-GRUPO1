@@ -7,19 +7,15 @@ $(document).ready(function () {
         datatype: "json",
         crossDomain: true,
     }).done(function (data) {
-
-
         let listaRegiones = data.results;
-
         let contenthtml = "";
-        $.each(listaRegiones, function (i, location) {
+        for (let i = 0; i < listaRegiones.length; i++) {
             contenthtml += "<tr>";
-            contenthtml += "<td>" + (i + 1) + "</td>";
-            contenthtml += "<td>" + location.name + "</td>";
-            let slash = location.url.split("/");
-            contenthtml += "<td><a href='../detalleRegion/detalleRegion.html?region="+ slash[6]+ "' class='btn btn-primary'>Detalles</a></td>";
+            contenthtml += "   <td>" + (i + 1) + "</td>";
+            contenthtml += "   <td>" + listaRegiones[i].name + "</td>";
+            contenthtml += "   <td><a class=\"btn btn-primary botonDetalle\" href='detalleRegion/detalleRegion.html?region="+(i+1)+"' role=\"button\">Detalles</a></td>";
             contenthtml += "</tr>";
-        });
+        }
         $("#body-paises").html(contenthtml);
 
     }).fail(function (err) {
