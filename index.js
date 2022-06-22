@@ -1,4 +1,6 @@
 $(document).ready(function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const idRegion = urlParams.get('region');
     $.ajax({
         method: "GET",
         url: "https://pokeapi.co/api/v2/region/" ,
@@ -9,12 +11,14 @@ $(document).ready(function () {
 
         let listaRegiones = data.results;
 
+
         let contenthtml = "";
-        $.each(listaRegiones, function (i, region) {
+        $.each(listaRegiones, function (i, location) {
             contenthtml += "<tr>";
             contenthtml += "<td>" + (i + 1) + "</td>";
-            contenthtml += "<td>" + region.name + "</td>";
-            //contenthtml += "<td><a href='../detalleRegion/detalleRegion.html?region=" + slash[6] + "' class='btn btn-primary'>Detalles</a></td>";
+            contenthtml += "<td>" + location.name + "</td>";
+            let slash = location.url.split("/");
+            contenthtml += "<td><a href='../detalleRegion/detalleRegion.html?region"+ slash[6]+ "' class='btn btn-primary'>Detalles</a></td>";
             contenthtml += "</tr>";
         });
         $("#body-paises").html(contenthtml);
