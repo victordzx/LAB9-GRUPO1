@@ -11,14 +11,13 @@ $(document).ready(function () {
 
         let listaRegiones = data.results;
 
-
         let contenthtml = "";
         $.each(listaRegiones, function (i, location) {
             contenthtml += "<tr>";
             contenthtml += "<td>" + (i + 1) + "</td>";
             contenthtml += "<td>" + location.name + "</td>";
             let slash = location.url.split("/");
-            contenthtml += "<td><a href='../detalleRegion/detalleRegion.html?region"+ slash[6]+ "' class='btn btn-primary'>Detalles</a></td>";
+            contenthtml += "<td><a href='../detalleRegion/detalleRegion.html?region="+ slash[6]+ "' class='btn btn-primary'>Detalles</a></td>";
             contenthtml += "</tr>";
         });
         $("#body-paises").html(contenthtml);
