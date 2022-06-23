@@ -20,7 +20,7 @@ $(document).ready(function () {
             contenthtml += "<tr>";
             contenthtml += "   <td>" + (i + 1) + "</td>";
             contenthtml += "   <td>" + listaAreas[i].name + "</td>";
-            contenthtml += "   <td><a class=\"btn btn-primary botonDetalle\" href='detalleRegion/detalleRegion.html?region="+(i+1)+"' role=\"button\">Ver Pokemones</a></td>";
+            contenthtml += "   <td><a class=\"btn btn-primary botonDetalle\" href=\"../detalleArea/detalleArea.html?area="+(i+1)+" role=\"button\">Ver Pokemones</a></td>";
             contenthtml += "</tr>";
         }
         $("#tablaAreas").html(contenthtml);
