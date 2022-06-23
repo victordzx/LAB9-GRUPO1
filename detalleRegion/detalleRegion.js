@@ -31,7 +31,7 @@ $(document).ready(function () {
             contenthtml += "<td>" + (i + 1) + "</td>";
             contenthtml += "<td>" + location.name + "</td>";
             let slash = location.url.split("/");
-            contenthtml += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion=" + slash[6] + "' class='btn btn-primary'>Detalles</a></td>";
+            contenthtml += "<td><a href='../detalleLocacion/detalleLocacion.html?locacion=" + slash[6] + "' class='btn btn-primary botonDetalle'>Detalles</a></td>";
             contenthtml += "</tr>";
         });
         $("#locationtables").html(contenthtml);
