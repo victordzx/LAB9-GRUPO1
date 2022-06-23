@@ -28,7 +28,6 @@ $(document).ready(function () {
         btnreturn = btnreturn +"<a class=\"btn btn-primary\" role=\"button\" href=\"../detalleRegion/detalleRegion.html?region="+idRegion[6]+"\">Regresar a la región</a>"
         $("#retroceso").html(btnreturn);
         $("#tablaAreas").html(contenthtml);
-
     }).fail(function (err) {
         alert("Ocurrio un error al cargar la página")
     });
