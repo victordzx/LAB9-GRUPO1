@@ -5,16 +5,17 @@ $(document).ready(function () {
     const idLocacion = urlParams.get('locacion');
     $.ajax({
         method: "GET",
-        url: "https://pokeapi.co/api/v2/location/",
+        url: "https://pokeapi.co/api/v2/location/" + idLocacion,
         datatype: "json",
         crossDomain: true,
     }).done(function (data) {
         let locacionName = data.name;
         $("#labelLocacion").text("Locación " + locacionName);
-        let regionName = data.name;
+        let regionName = data.region.name;
         $("#labelRegion").text("Región " + regionName);
-        let listaAreas = data.results;
+        let listaAreas = data.areas;
         let contenthtml = "";
+        let idRegion = data.region.url.split("/");
         for (let i = 0; i < listaAreas.length; i++) {
             contenthtml += "<tr>";
             contenthtml += "   <td>" + (i + 1) + "</td>";
@@ -23,10 +24,11 @@ $(document).ready(function () {
             contenthtml += "</tr>";
         }
         $("#tablaAreas").html(contenthtml);
+        let btnreturn ="";
+        btnreturn = btnreturn +"<a class=\"btn btn-primary\" role=\"button\" href=\"../detalleRegion/detalleRegion.html?region="+idRegion[6]+"\">Regresar a la región</a>"
+        $("#retroceso").html(btnreturn);
+        $("#tablaAreas").html(contenthtml);
 
-        $("button").click(function (){
-
-        })
     }).fail(function (err) {
         alert("Ocurrio un error al cargar la página")
     });
